@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Prueba controlador</title>
+        <meta charset="UTF-8">
+        <link href="../static.css/estilos1.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        <h2>Ingresar Datos del Estado</h2>
+        <a th:href="@{/}">Regresar</a>
+        <br/>
+        <form th:action="@{/guardarEstado}"
+              method="post"
+              th:object="${estados}">
+            <input type="hidden" name="id_estado" th:field="*{id_estado}">
+            <label form="nombre">Nombre</label>
+            <input type="text" name="nombre" th:field="*{nombre_estado}"/>
+            <br/>
+            <label form="capital">Capital</label>
+            <input type="text" name="capital" th:field="*{capital}"/>
+            <br/>
+            <label form="poblacion">Poblacion</label>
+            <input type="text" name="poblacion" th:field="*{poblacion}"/>
+            <br/>
+            <label form="costas">Costas</label>
+            <input type="text" name="costas" th:field="*{costas}"/>
+            <br/>
+            <input type="submit" name="guardar" value="Guardar"/>
+        </form>
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>
